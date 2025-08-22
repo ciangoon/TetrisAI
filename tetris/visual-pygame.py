@@ -1,7 +1,7 @@
 from adversary import RandomAdversary
 from arguments import parser
 from board import Board, Direction, Rotation
-from constants import BOARD_WIDTH, BOARD_HEIGHT, DEFAULT_SEED, INTERVAL
+from constants import BOARD_WIDTH, BOARD_HEIGHT, DEFAULT_SEED, INTERVAL, FRAMES_PER_SECOND
 from player import Player, SelectedPlayer
 
 import pygame
@@ -16,7 +16,6 @@ CELL_WIDTH = 20
 CELL_HEIGHT = 20
 
 EVENT_FORCE_DOWN = pygame.USEREVENT + 1
-FRAMES_PER_SECOND = 60
 
 
 class Square(pygame.sprite.Sprite):

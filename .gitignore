@@ -1,0 +1,46 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# Env / secrets
+.env
+.env.*.local
+
+# Logs / temp
+*.log
+*.tmp
+tmp/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage/
+
+# Web (Vite/React)
+web/node_modules/
+web/dist/
+web/.vite/
+web/.cache/
+web/.eslintcache
+web/.turbo/
+web/.next/
+
+# Build artifacts
+build/
+out/
+
+# Tuning artifacts (optional)
+web/*.json
+web/*.csv
