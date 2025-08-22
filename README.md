@@ -38,22 +38,13 @@ python tetris/visual-pygame.py --manual    # Manual play
 
 ## Controls (Manual Mode)
 
-- Tkinter UI (`tetris/visual.py`):
-  - Arrow Left/Right: move
-  - Arrow Down: soft drop
-  - Space: hard drop
-  - Up or `z`: rotate clockwise
-  - `x`: rotate anticlockwise
-  - Escape: quit
-
-- Pygame UI (`tetris/visual-pygame.py`):
-  - Arrow Left/Right: move
-  - Arrow Down: soft drop
-  - Space: hard drop
-  - Up: rotate clockwise
-  - `z`: rotate anticlockwise
-  - `x`: rotate clockwise
-  - Escape or close window: quit
+- Arrow Left/Right: move
+- Arrow Down: soft drop
+- Space: hard drop
+- Up: rotate clockwise
+- `z`: rotate anticlockwise
+- `x`: rotate clockwise
+- Escape or close window: quit
 
 ## Autoplayer (AI)
 
@@ -89,6 +80,40 @@ python tetris/cmdline.py          # Text
 
 - If the window does not appear (Tkinter), ensure your Python has Tk support.
 - For Pygame, ensure `pygame` is installed and the display can be initialized.
+
+# React Web App (for the browser)
+
+A separate React + TypeScript app lives under `web/` for deployment to Vercel. It reimplements the core game/AI in TS and runs entirely client‑side.
+
+- Structure (key files):
+  - `web/src/engine/enums.ts`: `Direction`, `Rotation`, `Shape`, board constants
+  - `web/src/engine/Block.ts`: block geometry, rotation, movement
+  - `web/src/engine/Board.ts`: board state, collisions, line clears, scoring
+  - `web/src/ai/Player.ts`: heuristic AI (holes, height, transitions, wells, etc.)
+  - `web/src/components/TetrisCanvas.tsx`: canvas renderer, game loop, input, ghost piece, resizable box, speed slider, game‑over detection
+  - `web/src/App.tsx`: UI shell (centered canvas, start screen to choose manual or autoplay, autoplay toggle, score, restart with spinner)
+  - `web/index.html`, `web/vite.config.ts`, `web/tsconfig.json`: Vite + TS setup
+
+- Features:
+  - Manual play with the same controls as Python
+  - Autoplayer with adjustable speed (slider)
+  - Ghost silhouette showing landing position
+  - Resizable play area (drag handle)
+  - Start screen (choose manual or autoplay), game‑over overlay
+
+- Local development:
+  ```bash
+  cd web
+  npm install
+  npm run dev
+  # open the shown localhost URL
+  ```
+
+- Deploy to Vercel (Dashboard):
+  - New Project → Import repo → set Root Directory to `web/`
+  - Build command: `npm run build`  •  Output directory: `dist`
+  - Deploy
+
 
 ## License
 
